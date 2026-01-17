@@ -67,7 +67,7 @@ fun LoginScreen(
 
         if (state.errorMessage != null) {
             Spacer(modifier = Modifier.height(8.dp))
-            Text(state.errorMessage!!, color = Color(0xFFD0BCFF))
+            Text(state.errorMessage!!, color = Color.Red)
         }
 
         Spacer(modifier = Modifier.height(16.dp))

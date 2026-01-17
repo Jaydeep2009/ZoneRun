@@ -6,10 +6,13 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jaydeep.zonerun.data.repository.AuthRepository
+import com.jaydeep.zonerun.data.repository.UserRepository
 import kotlinx.coroutines.launch
 
 class AuthViewModel : ViewModel(){
     private val repository = AuthRepository()
+    private val userRepository = UserRepository()
+
 
     var state by mutableStateOf(AuthState())
         private set
@@ -23,6 +26,8 @@ class AuthViewModel : ViewModel(){
             state = state.copy(isLoading = true, errorMessage = null)
             try {
                 repository.login(email,password)
+
+                userRepository.createUserIfNotExists()
                 state = state.copy(isLoading = false, isLoggedIn = true)
             }catch (e:Exception){
                 state = state.copy(isLoading = false, errorMessage = e.message)
@@ -35,6 +40,8 @@ class AuthViewModel : ViewModel(){
             state = state.copy(isLoading = true, errorMessage = null)
             try {
                 repository.signup(email,password)
+
+                userRepository.createUserIfNotExists()
                 state = state.copy(isLoading = false, isLoggedIn = true)
             }catch (e:Exception){
                 state = state.copy(isLoading = false, errorMessage = e.message)
