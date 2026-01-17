@@ -11,6 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.jaydeep.zonerun.auth.AuthViewModel
+import com.jaydeep.zonerun.navigation.AuthNavGraph
+import com.jaydeep.zonerun.ui.auth.SignupScreen
 import com.jaydeep.zonerun.ui.theme.ZoneRunTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,30 +22,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ZoneRunTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+
+            val authViewModel: AuthViewModel = viewModel()
+
+            if (authViewModel.state.isLoggedIn) {
+                Text(text = "Sucessssssssssssssssssssssssssssssssss") // your main app nav graph
+            } else {
+                AuthNavGraph(
+                    authViewModel = authViewModel,
+                    onAuthSuccess = {
+                        // this will auto recompose and go to main app
+                    }
+                )
             }
         }
+
+
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ZoneRunTheme {
-        Greeting("Android")
-    }
-}

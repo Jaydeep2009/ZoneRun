@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
-    // Add the Google services Gradle plugin
+    // 🔥 THIS LINE MUST BE HERE
     id("com.google.gms.google-services")
 
 }
@@ -33,7 +33,7 @@ android {
             )
         }
     }
-    
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -56,17 +56,18 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
 
-    // Import the Firebase BoM
+
+
+    // Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:34.8.0"))
 
-
-    // TODO: Add the dependencies for Firebase products you want to use
-    // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
 
 
-    // Add the dependencies for any other desired Firebase products
-    // https://firebase.google.com/docs/android/setup#available-libraries
+
+
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
@@ -76,12 +77,15 @@ dependencies {
 
 // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.8.1")
 
 // Location (later)
     implementation("com.google.android.gms:play-services-location:21.3.0")
 
 // Maps (later)
     implementation("com.google.maps.android:maps-compose:4.3.3")
+
+    implementation(libs.androidx.compose.runtime)
 
 
     testImplementation(libs.junit)
