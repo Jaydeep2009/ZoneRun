@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZoneRun">
+
+        //maps
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDNiyz26F8067FFaJBBGsZLtAClw9g73gc"/>
+
 
         <activity
             android:name=".MainActivity"
@@ -28,6 +35,7 @@
     //permissions for location access
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
 
 </manifest>

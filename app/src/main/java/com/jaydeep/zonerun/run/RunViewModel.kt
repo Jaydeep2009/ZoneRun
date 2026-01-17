@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.maps.model.LatLng
 import com.jaydeep.zonerun.data.repository.RunRepository
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -49,7 +50,9 @@ class RunViewModel(application: Application): AndroidViewModel(application){
 
         lastLocation = location
 
-        val newPath = state.path + (location.latitude to location.longitude)
+        val newPoint = LatLng(location.latitude, location.longitude)
+        val newPath = state.path + newPoint
+
         val newDuration = System.currentTimeMillis() - startTime
 
         state = state.copy(

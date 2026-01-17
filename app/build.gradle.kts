@@ -65,6 +65,10 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
 
+    //maps
+    implementation("com.google.maps.android:maps-compose:4.3.3")
+
+
 
 
 
@@ -87,6 +91,7 @@ dependencies {
 
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compilercommon)
+    implementation(libs.androidx.compose.foundation.layout)
 
 
     testImplementation(libs.junit)
