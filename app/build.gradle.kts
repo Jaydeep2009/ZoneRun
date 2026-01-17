@@ -86,6 +86,7 @@ dependencies {
     implementation("com.google.maps.android:maps-compose:4.3.3")
 
     implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compilercommon)
 
 
     testImplementation(libs.junit)

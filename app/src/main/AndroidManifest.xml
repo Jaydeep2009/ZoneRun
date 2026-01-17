@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZoneRun">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -23,5 +24,10 @@
             </intent-filter>
         </activity>
     </application>
+
+    //permissions for location access
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
 </manifest>
