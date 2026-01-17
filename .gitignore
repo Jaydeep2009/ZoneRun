@@ -1,3 +1,50 @@
-*.iml
-.idea/
+# =========================
+# Android / Gradle
+# =========================
+*.apk
+*.aab
+*.ap_
+*.dex
+build/
+app/build/
+.gradle/
+.local/
+captures/
+.externalNativeBuild/
+.cxx/
 
+# =========================
+# Local config (IMPORTANT)
+# =========================
+local.properties
+
+# =========================
+# IDE
+# =========================
+.idea/
+*.iml
+
+# =========================
+# Logs & temp
+# =========================
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# =========================
+# Firebase secrets
+# =========================
+app/google-services.json
+
+# =========================
+# Keystore
+# =========================
+*.jks
+*.keystore
+
+# =========================
+# Kotlin
+# =========================
+.kotlin/
